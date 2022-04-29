@@ -1,0 +1,79 @@
+[meta title:"My Idyll Post" description:"Short description of your project" /]
+
+[Header
+  fullWidth:true
+  title:"My Idyll Post"
+  subtitle:"Welcome to Idyll"
+  author:"Vaidehi Mehta"
+  authorLink:"https://idyll-lang.org"
+  date:`(new Date()).toDateString()`
+  background:"#222222"
+  color:"#ffffff"
+   /]
+
+
+## Introduction
+
+This is an Idyll post. It is generated via
+the file `index.idyll`. To compile this post using
+idyll, run the command `idyll` inside of this directory.
+
+
+Idyll posts are designed to support interaction and
+data-driven graphics.
+
+# BuiltIn Components: onClick
+
+[var name:"myVar" value:0 /]
+
+[button onClick:`myVar += 1`]Click Me![/button]
+
+Variable value: [Display value:myVar /]
+
+# BuiltIn Components: Dropdown
+
+[var name:"selectVal" value:"Option1" /]
+[Select value:selectVal options:`["Option1", "Option2"]`  /]
+
+
+## Vega-lite
+
+[data name:"Affairs" source:"Affairs.csv" /]
+
+[IdyllVegaLite data:Affairs spec:`{
+  mark: "bar",
+  encoding: {
+    x: {
+      field: "yearsmarried",
+      type: "temporal",
+      axis: {title: "YearsMarried", "type": "quantitative"}
+    },
+    y: {
+      field: "affairs",
+      type: "quantitative",
+      axis: {title: "Affairs"},
+    }
+  }
+}` /]
+
+Breif Explanation:
+
+1) Where did you get the dataset?
+
+A: The Affairs dataset can be found at https://vincentarelbundock.github.io/Rdatasets/datasets.html.
+
+
+2) What is the data trying to measure?
+
+A: The data is telling about the number of affairs males and females have and at what age they were married and number of children they have with some additional information
+
+
+3) What are you trying to show in the plot?
+
+A: The plot is telling about the number of years a person was married and total number of affairs they had. Though I couldn't add appropriate scales to the axes. That is something I would like to look into working futher on the project.
+
+Apart from that I explored some of the other interactions that can be done in idyll like dropdowns and radio buttons. I have added a dropdown menu just to try the code in this homework.
+
+4) What vega-lite mark(s) you used and why?
+
+A: The mark that was used was "bar" to depict the trend in data.
